@@ -20,7 +20,7 @@ def player_name():
 def player_input(player1):
     marker = ''
     while not (marker == 'X' or marker == 'O'):
-        marker = raw_input(player1+', choose X or O')
+        marker = raw_input(player1+', choose X or O. ').upper()
     if marker == 'X':
         return ('X', 'O')
     else:
@@ -64,16 +64,15 @@ def choose_position():
     position = 0
     while position not in range(1,10) or not space_check(board,position):
         try:
-            position = int(raw_input('Choose your position (1-9):'))
+            position = int(raw_input('Choose your position (1-9): '))
         except:
-            print("Choose your position (1-9):")
+            print("Choose your position (1-9): ")
     return position
 
 #Choose whether to replay
 def replay():
     return raw_input('Another game? (y/n)').startswith('y')
 
-#Game starts!
 import time
 print("Welcome to Tic Tac Toe! Let's go over the rules real quick.")
 time.sleep(3)
